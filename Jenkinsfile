@@ -57,5 +57,12 @@ pipeline {
           //      }
           //  }
         //}
+        stage('Run the bot') {
+            steps {
+                script {
+                    sh 'python3 $WORKSPACE/bot.py > $WORKSPACE/$(date +%Y%m%d).log'
+                }
+            }
+        }
     }
 }
