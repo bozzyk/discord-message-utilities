@@ -18,7 +18,7 @@ pipeline {
         stage('Load environment') {
             steps {
                 script {
-                    sg 'cp ~/discord-message-utilities/variables.env /var/lib/jenkins/workspaces/discord-message-utilities/variables.env'
+                    sh 'cp /home/captain/discord-message-utilities/variables.env $WORKSPACE/variables.env'
                 }
             }
         }
