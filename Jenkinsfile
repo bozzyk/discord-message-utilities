@@ -22,17 +22,17 @@ pipeline {
                 }
             }
         }
-        stage('Static Code Check') {
-            steps {
-                script {
-                    sh 'find . -name \\*.py | xargs pylint -f parseable | tee pylint.log'
-                    recordIssues(
-                        tool: pyLint(pattern: 'pylint.log'),
-                        unstableTotalHigh: 100,
-                    )
-                }
-            }
-        }
+        //stage('Static Code Check') {
+        //    steps {
+        //        script {
+        //            sh 'find . -name \\*.py | xargs pylint -f parseable | tee pylint.log'
+        //            recordIssues(
+        //                tool: pyLint(pattern: 'pylint.log'),
+        //                unstableTotalHigh: 100,
+        //            )
+        //        }
+        //    }
+        //}
         //stage('Unit tests run') {
         //    steps {
         //        script {
