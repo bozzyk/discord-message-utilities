@@ -8,13 +8,6 @@ pipeline {
                 }
             }
         }
-        stage('Code update') {
-            steps {
-                script {
-                    sh 'git pull'
-                }
-            }
-        }
         stage('Load environment') {
             steps {
                 script {
