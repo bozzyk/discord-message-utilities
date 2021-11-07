@@ -4,7 +4,7 @@ pipeline {
         stage('Packages installation') {
             steps {
                 script {
-                    sh 'pip3 install -Ur requirements.txt'
+                    sh 'python3 -m pip install -Ur requirements.txt'
                 }
             }
         }
