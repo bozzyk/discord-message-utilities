@@ -11,7 +11,7 @@ pipeline {
         stage('Load environment') {
             steps {
                 script {
-                    sh 'cp /home/captain/discord-message-utilities/variables.env $WORKSPACE/variables.env'
+                    sh 'cp /home/captain/discord-message-utilities/.env $WORKSPACE/.env'
                 }
             }
         }
@@ -53,7 +53,9 @@ pipeline {
         stage('Run the bot') {
             steps {
                 script {
-                    sh 'python3 $WORKSPACE/bot.py > $WORKSPACE/$(date +%Y%m%d).log'
+                    sh 'touch $(date +%Y%m%d).log'
+                    sh 'chmod u=rw,ug=rw,o=rw $(date +%Y%m%d).log'
+                    sh 'BUILD_ID=dontKillMe nohup python3 $WORKSPACE/bot.py > $WORKSPACE/$(date +%Y%m%d).log &'
                 }
             }
         }
