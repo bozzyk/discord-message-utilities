@@ -15,6 +15,13 @@ pipeline {
                 }
             }
         }
+        stage('Load environment') {
+            steps {
+                script {
+                    sg 'cp ~/discord-message-utilities/variables.env /var/lib/jenkins/workspaces/discord-message-utilities/variables.env'
+                }
+            }
+        }
         stage('Static Code Check') {
             steps {
                 script {
