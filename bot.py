@@ -25,7 +25,7 @@ class MyClient(discord.Client):
         for server in client.guilds:
             await self.setup_server(server)
         
-        self.dead_chat_threshold = timedelta(days=0, seconds=0, minutes=60)
+        self.dead_chat_threshold = timedelta(days=1, seconds=0, minutes=0)
         self.dead_chats = {server.id: False for server in client.guilds}
         
         for server_id, is_dead in self.dead_chats.items():
